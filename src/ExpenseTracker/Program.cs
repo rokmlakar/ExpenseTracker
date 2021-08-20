@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,10 +19,15 @@ namespace ExpenseTracker
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddHttpClient("ExpenseTracker.Api", client =>
+            {
+                client.BaseAddress = new Uri("https://plannerapp-api.azurewebsites.net");
+            }).AddHttpMessageHandler<AuthorizationMessageHandler>();
+            builder.Services.AddTransient<AuthorizationMessageHandler>();
+            builder.Services.AddScoped(sp => sp.GetService<IHttpClientFactory>().CreateClient("ExpenseTracker.Api"));
 
             builder.Services.AddMudServices();
-
+            builder.Services.AddBlazoredLocalStorage();
             await builder.Build().RunAsync();
         }
     }
