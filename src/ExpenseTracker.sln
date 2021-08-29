@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseTracker", "ExpenseTracker\ExpenseTracker.csproj", "{6E2D390C-C8FF-4C0E-89B4-A798E1B0FEAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseTracker.Shared", "ExpenseTracker.Shared\ExpenseTracker.Shared.csproj", "{068A368F-8F74-4E80-A73A-D6BF6C3738DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseTracker.Shared", "ExpenseTracker.Shared\ExpenseTracker.Shared.csproj", "{068A368F-8F74-4E80-A73A-D6BF6C3738DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
